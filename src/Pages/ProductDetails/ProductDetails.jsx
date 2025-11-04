@@ -44,7 +44,7 @@ const ProductDetails = () => {
     } = product;
 
     useEffect(() => {
-        fetch(`http://localhost:3000/products/bids/${_id}`)
+        fetch(`https://smart-deals-server.onrender.com/products/bids/${_id}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -68,7 +68,7 @@ const ProductDetails = () => {
             status: 'pending'
         }
 
-        fetch('http://localhost:3000/bids', {
+        fetch('https://smart-deals-server.onrender.com/bids', {
 
             method: "POST",
             headers: {

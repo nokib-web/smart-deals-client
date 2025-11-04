@@ -30,7 +30,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/all-products',
-        loader: ()=> fetch('http://localhost:3000/products'),
+        loader: ()=> fetch('https://smart-deals-server.onrender.com/products'),
         Component: AllProducts
       },
       {
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/productDetails/:id',
-        loader: ({params})=>fetch(`http://localhost:3000/products/${params.id}`),
+        loader: ({params})=>fetch(`https://smart-deals-server.onrender.com/products/${params.id}`),
         Component: ProductDetails
       },
       {

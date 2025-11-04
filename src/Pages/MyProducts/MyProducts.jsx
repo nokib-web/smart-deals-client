@@ -13,7 +13,7 @@ const MyProducts = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/products?email=${user.email}`)
+            fetch(`https://smart-deals-server.onrender.com/products?email=${user.email}`)
                 .then((res) => res.json())
                 .then((data) => setMyProducts(data))
                 .catch((error) => console.error(error));
@@ -32,7 +32,7 @@ const MyProducts = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/products/${id}`, {
+                fetch(`https://smart-deals-server.onrender.com/products/${id}`, {
                     method: "DELETE",
                 })
                     .then((res) => res.json())
@@ -65,7 +65,7 @@ const MyProducts = () => {
         });
 
         if (formValues) {
-            fetch(`http://localhost:3000/products/${product._id}`, {
+            fetch(`https://smart-deals-server.onrender.com/products/${product._id}`, {
                 method: "PATCH",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formValues),
@@ -97,7 +97,7 @@ const MyProducts = () => {
             confirmButtonText: "Yes, mark as sold",
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/products/${id}`, {
+                fetch(`https://smart-deals-server.onrender.com/products/${id}`, {
                     method: "PATCH",
                     headers: { "content-type": "application/json" },
                     body: JSON.stringify({ status: "sold" }),

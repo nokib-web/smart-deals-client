@@ -46,7 +46,7 @@ const CreateProduct = () => {
             status: "pending",
         };
 
-        fetch("http://localhost:3000/products", {
+        fetch("https://smart-deals-server.onrender.com/products", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newProduct),
