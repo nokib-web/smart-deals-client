@@ -47,6 +47,7 @@ const router = createBrowserRouter([
           <MyProducts></MyProducts>
         </PrivateRoutes>
       },
+
       {
         path: '/my-bids',
         element: <PrivateRoutes>
@@ -60,7 +61,7 @@ const router = createBrowserRouter([
       {
         path: '/productDetails/:id',
         loader: ({params})=>fetch(`https://smart-deals-server.onrender.com/products/${params.id}`),
-        Component: ProductDetails
+        element: <PrivateRoutes><ProductDetails></ProductDetails></PrivateRoutes>
       },
       {
         path:'/profile',

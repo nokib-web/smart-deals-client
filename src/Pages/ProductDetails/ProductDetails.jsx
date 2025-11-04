@@ -44,13 +44,18 @@ const ProductDetails = () => {
     } = product;
 
     useEffect(() => {
-        fetch(`https://smart-deals-server.onrender.com/products/bids/${_id}`)
+        fetch(`https://smart-deals-server.onrender.com/products/bids/${_id}`,{
+            headers:{
+                authorization : `Bearer ${user.accessToken}`
+            }
+        })
+
             .then(res => res.json())
             .then(data => {
                 console.log(data)
                 setBids(data)
             })
-    }, [_id])
+    }, [_id, user])
 
     const handleBidSubmit = (e) => {
         e.preventDefault()

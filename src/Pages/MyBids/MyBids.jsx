@@ -8,9 +8,9 @@ const MyBids = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`https://smart-deals-server.onrender.com/bids?email=${user.email}`,{
+            fetch(`https://smart-deals-server.onrender.com/bids?email=${user.email}`, {
                 headers: {
-                    authorization : `bearer ${user.accessToken}`
+                    authorization: `Bearer ${user.accessToken}`
                 }
             })
                 .then(res => res.json())
@@ -33,25 +33,25 @@ const MyBids = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://smart-deals-server.onrender.com/bids/${_id}`,{
-                    method:'DELETE',
+                fetch(`https://smart-deals-server.onrender.com/bids/${_id}`, {
+                    method: 'DELETE',
 
                 })
-                .then(res=>res.json())
-                .then(data=>{
-                    if(data.deletedCount){
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount) {
 
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Your bid has been deleted.",
-                            icon: "success"
-                        });
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your bid has been deleted.",
+                                icon: "success"
+                            });
 
-                        const remainingBids =  bids.filter(bid=>bid._id !==_id);
-                        setBids(remainingBids)
-                    }
-                 
-                })
+                            const remainingBids = bids.filter(bid => bid._id !== _id);
+                            setBids(remainingBids)
+                        }
+
+                    })
             }
         });
 
